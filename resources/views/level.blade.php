@@ -12,12 +12,13 @@
 
     <style>
         body {
-            color: #003366; /* Color azul oscuro */
+            color: black; /* Color negro para todo el cuerpo */
         }
-        .card-title,
-        .card-subtitle,
-        .card-text {
-            color: #003366; /* Asegúrate que todos los textos tengan el color deseado */
+        .badge {
+            color: #003366; /* Color azul oscuro para el texto de las etiquetas badge */
+        }
+        .badge.bg-light {
+            background-color: #f8f9fa; /* Color de fondo claro para las etiquetas badge */
         }
     </style>
 </head>
@@ -27,7 +28,7 @@
         <div class="row">
             <div class="col-12 my-3 pt-3 shadow">
                
-                <h3>Contenido de usuarios nivel{{ $level->name }} </h3>
+                <h3>Contenido de usuarios nivel {{ $level->name }} </h3>
                 <hr>
                 <div class="row">
                     @foreach ($posts as $post)
@@ -40,7 +41,7 @@
                                     <div class="col-md-8">
                                         <div class="card-body">
                                           <h5 class="card-title">{{ $post->name }}</h5>
-                                          <h6 class="card-subtitle text-muted">
+                                          <h6 class="card-subtitle">
                                             {{ $post->category->name }} |
                                             {{ $post->comments_count }}
                                             {{ str()->plural('comentario', $post->comments_count) }}
@@ -48,7 +49,7 @@
                                           <p class="card-text small">
                                             @foreach ($post->tags as $tag )
                                             <span class="badge bg-light">
-                                                #{{ $tag->name}}
+                                                #{{ $tag->name }}
                                             </span>
                                             @endforeach
                                           </p>
@@ -60,7 +61,7 @@
                     @endforeach
                 </div>
 
-                <h3>Contenido de video de usuarios nivel{{ $level->name }} </h3>
+                <h3>Contenido de video de usuarios nivel {{ $level->name }} </h3>
                 <hr>
 
                 <div class="row">
@@ -74,7 +75,7 @@
                                     <div class="col-md-8">
                                         <div class="card-body">
                                            <h5 class="card-title">{{ $video->name }}</h5>
-                                           <h6 class="card-subtitle text-muted">
+                                           <h6 class="card-subtitle">
                                             {{ $video->category->name }} |
                                             {{ $video->comments_count }}
                                             {{ str()->plural('comentario', $video->comments_count) }}
@@ -82,7 +83,7 @@
                                           <p class="card-text small">
                                             @foreach ($video->tags as $tag )
                                             <span class="badge bg-light">
-                                                #{{ $tag->name}}
+                                                #{{ $tag->name }}
                                             </span>
                                             @endforeach
                                          </p>
