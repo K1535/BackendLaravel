@@ -15,18 +15,18 @@
         <div class="row">
             <div class="col-12 my-3 pt-3 shadow">
                 <img src="{{ $user->image->url }}" class="float-left rounded mr-2" >
-                <h1>{{ $user->name }}</h1>
-                <h3>{{ $user->email }}</h3>
-                <p>
+                <h1 class="text-dark">{{ $user->name }}</h1> <!-- Cambiado a texto negro -->
+                <h3 class="text-dark">{{ $user->email }}</h3> <!-- Cambiado a texto negro -->
+                <p class="text-dark"> <!-- Cambiado a texto negro -->
                     <strong>Instagram</strong>: {{ $user->profile->instagram }}<br>
                     <strong>GitHub</strong>: {{ $user->profile->github }}<br>
                     <strong>Web</strong>: {{ $user->profile->web }}<br>
                 </p>
-                <p>
+                <p class="text-dark"> <!-- Cambiado a texto negro -->
                     <strong>País</strong>: {{ $user->location->country }}<br>
                     <strong>Nivel</strong>: 
                     @if($user->level)
-                        <a href="{{route('level',$user->level->id)}}">
+                        <a href="{{route('level',$user->level->id)}}" class="text-dark"> <!-- Enlace en negro -->
                             {{ $user->level->name }}</a>
                     @else
                         ---
@@ -34,17 +34,17 @@
                     <br>
                 </p>
                 <hr>
-                <p>
+                <p class="text-dark"> <!-- Cambiado a texto negro -->
                     <strong>Grupos</strong>:
                     @forelse ($user->groups as $group)
-                        <span class="badge bg-primary">{{ $group->name }}</span>
+                        <span class="badge bg-primary text-dark">{{ $group->name }}</span> <!-- Etiquetas de grupo en negro -->
                     @empty
                         <em>No pertenece a algún grupo</em>
                     @endforelse
                 </p>
                 <hr>
 
-                <h3>Posts</h3>
+                <h3 class="text-dark">Posts</h3> <!-- Cambiado a texto negro -->
 
                 <div class="row">
                     @foreach ($posts as $post)
@@ -56,16 +56,16 @@
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
-                                          <h5 class="card-title">{{ $post->name }}</h5>
-                                          <h6 class="card-subtitle text-muted">
+                                          <h5 class="card-title text-dark">{{ $post->name }}</h5> <!-- Título en negro -->
+                                          <h6 class="card-subtitle text-dark"> <!-- Subtítulo en negro -->
                                             {{ $post->category->name }} |
                                             {{ $post->comments_count }}
                                             {{ str()->plural('comentario', $post->comments_count) }}
                                           </h6>
                                           <p class="card-text small">
                                             @foreach ($post->tags as $tag )
-                                            <span class="badge bg-light">
-                                                #{{ $tag->name}}
+                                            <span class="badge bg-light text-dark"> <!-- Etiquetas en negro -->
+                                                #{{ $tag->name }}
                                             </span>
                                             @endforeach
                                           </p>
@@ -77,7 +77,7 @@
                     @endforeach
                 </div>
 
-                <h3>Videos</h3>
+                <h3 class="text-dark">Videos</h3> <!-- Cambiado a texto negro -->
 
                 <div class="row">
                     @foreach ($videos as $video)
@@ -89,16 +89,16 @@
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
-                                           <h5 class="card-title">{{ $video->name }}</h5>
-                                           <h6 class="card-subtitle text-muted">
+                                           <h5 class="card-title text-dark">{{ $video->name }}</h5> <!-- Título en negro -->
+                                           <h6 class="card-subtitle text-dark"> <!-- Subtítulo en negro -->
                                             {{ $video->category->name }} |
                                             {{ $video->comments_count }}
                                             {{ str()->plural('comentario', $video->comments_count) }}
                                           </h6>
                                           <p class="card-text small">
                                             @foreach ($video->tags as $tag )
-                                            <span class="badge bg-light">
-                                                #{{ $tag->name}}
+                                            <span class="badge bg-light text-dark"> <!-- Etiquetas en negro -->
+                                                #{{ $tag->name }}
                                             </span>
                                             @endforeach
                                          </p>

@@ -49,15 +49,22 @@
                 font-size: 84px;
             }
 
-            .links>a{
-                color:#636b6f;
-                padding:0 25px;
-                font-size:13px;
+            .links>a {
+                color: #3498db; /* Color inicial */
+                padding: 0 25px;
+                font-size: 13px;
                 font-weight: 600;
-                letter-spacing:.1rem;
-                text-decoration:none;
-                text-transform:uppercase;
+                letter-spacing: .1rem;
+                text-transform: uppercase;
+                text-decoration: none;
+                transition: transform 0.3s ease, color 0.3s ease; /* Animación suave */
             }
+
+            .links>a:hover {
+                color: #e74c3c; /* Color al pasar el ratón */
+                transform: translateX(-50px); /* Movimiento hacia arriba */
+            }
+
 
             .m-b-md{
                 margin-botton:30px;
@@ -69,16 +76,17 @@
     <body>
         <div class="flex-center position-ref full-height">
             <div class="content">
-                <div class="title m-b-md">
-                   Enloquent: Relaciones
+                <div class="title m-b-md" style="color: #C0392B; text-align: center; margin-top: -50px;">
+                Enloquent: Relaciones
                 </div>
 
-                <div class="links">
-                    @foreach ($users as $user)
-                     <a href="{{route('profile',$user->id)}}">{{ $user->name}}</a>   
-                    @endforeach
+                <div class="links" style="margin-top: 50px;">
+                 @foreach ($users as $user)
+                    <a href="{{route('profile',$user->id)}}">{{ $user->name}}</a>   
+                 @endforeach
                 </div>
             </div>
         </div>
+
     </body>
 </html>
